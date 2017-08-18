@@ -1,4 +1,4 @@
-package function.sequence.builders;
+package method.chain;
 
 import objects.Body;
 
