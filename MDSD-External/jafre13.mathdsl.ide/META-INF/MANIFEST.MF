@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: jafre13.mathdsl.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: jafre13.mathdsl.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: jafre13.mathdsl,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.xtext.example.mydsl.ide.contentassist.antlr.internal,
+ org.xtext.example.mydsl.ide.contentassist.antlr
+

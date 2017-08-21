@@ -1,0 +1,44 @@
+grammar org.xtext.example.mydsl.MathDsl with org.eclipse.xtext.common.Terminals
+
+generate mathDsl "http://www.xtext.org/example/mydsl/MathDsl"
+
+
+AllExp:
+	'name' name=ID ':' exps+=MathExp+
+;
+
+MathExp:
+	name=ID '=' exp=Expression
+;
+
+Expression:
+	Addition
+;
+
+
+Addition returns Expression:
+	Subtraction ({Addition.left=current} '+' right=Subtraction)*
+	;
+
+Subtraction returns Expression:
+	Multiplication ({Subtraction.left=current} '-' right=Multiplication)*
+;
+Multiplication returns Expression:
+	Division ({Multiplication.left = current} '*' right=Division )*
+
+;
+Division returns Expression:
+	Primitive ({Division.left = current} '/' right=Primitive )*
+
+;
+
+Primitive returns Expression:
+	RawInteger | '(' Expression ')' | RawVariable
+;
+RawInteger:
+	value=INT
+;
+RawVariable:
+	value=[MathExp]
+;
+
